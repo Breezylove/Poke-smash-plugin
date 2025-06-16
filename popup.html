@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chairmanbreezy's SoP Settings</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      width: 280px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h3 { margin-top: 0; margin-bottom: 15px; color: #222; font-size: 1.1em; text-align: center; }
+    label { display: block; margin-bottom: 5px; color: #444; font-size: 0.95em; font-weight: 500; }
+    select, input[type="text"], input[type="password"] {
+      width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc;
+      border-radius: 5px; box-sizing: border-box; background-color: white; font-size: 0.9em;
+    }
+    button {
+      background-color: #0073e6; color: white; padding: 10px 15px; border: none;
+      border-radius: 5px; cursor: pointer; width: 100%; font-size: 1em;
+      transition: background-color 0.2s ease;
+    }
+    button:hover { background-color: #005bb5; }
+    #status { margin-top: 12px; font-size: 0.9em; color: #28a745; text-align: center; min-height: 1.2em; }
+    .note { font-size: 0.8em; color: #555; margin-bottom: 10px; text-align: center; }
+    #setupMessage {
+        background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba;
+        padding: 10px; border-radius: 4px; margin-bottom: 15px; font-size: 0.9em;
+        display: none; /* Hidden by default, shown by JS */
+    }
+  </style>
+</head>
+<body>
+  <h3>e621 Settings</h3>
+
+  <div id="setupMessage">
+    <p><strong>Welcome!</strong> To get the best experience, you can optionally enter your e621 username and API key below. This allows the extension to make authenticated requests on your behalf.</p>
+    <p>If you prefer anonymous access, simply leave these fields blank. Your User-Agent will still be sent.</p>
+  </div>
+
+  <label for="ratingSelect">Content Rating:</label>
+  <select id="ratingSelect">
+    <option value="rating:safe">Safe (SFW)</option>
+    <option value="rating:questionable">Questionable (Suggestive)</option>
+    <option value="rating:explicit">Explicit (NSFW)</option>
+    <option value="">Any Rating (Potentially NSFW)</option>
+  </select>
+
+  <label for="e621Username">e621 Username (Optional):</label>
+  <input type="text" id="e621Username" placeholder="Your e621 username">
+
+  <label for="e621ApiKey">e621 API Key (Optional):</label>
+  <input type="password" id="e621ApiKey" placeholder="Your e621 API key">
+  <p class="note">Leave username and API key blank for anonymous access.</p>
+
+  <button id="saveButton">Save Settings</button>
+  <div id="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

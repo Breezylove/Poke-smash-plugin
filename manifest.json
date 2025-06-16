@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "chairmanbreezy's Smash or Pass",
+  "version": "1.6",
+  "description": "Displays e621 images for Pokémon with advanced filtering options.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://pokesmash.xyz/*",
+    "https://e621.net/*",
+    "https://pokeapi.co/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://pokesmash.xyz/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
